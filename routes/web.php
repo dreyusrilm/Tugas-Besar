@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::group(['middleware'=>'auth'],function(){
+
+    Route::get('beranda','Beranda_controller@index');
+ 
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
